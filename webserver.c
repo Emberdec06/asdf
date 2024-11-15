@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <wiringPi.h>
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -26,6 +27,8 @@ void trim_newline(char *str) {
   }
 }
 int main(int argc, char *argv[]) {
+  wiringPiSetupGpio();
+pinMode(14, OUTPUT);
   int opt;
   int port = PORT_DEFAULT; 
   while ((opt = getopt(argc, argv, "p:")) != -1) {
@@ -75,10 +78,9 @@ int main(int argc, char *argv[]) {
       if (command && name && direction) {
         if (strcmp(command, "MOVE") == 0) {
           if (is_valid_name(name)) {
-            if (strcmp(direction, "up") == 0 || strcmp(direction, "down") == 0) {
-              printf("Command received: MOVE %s %s\n", name, direction);
-            } else {
-              printf("Invalid direction: %s (expected 'up' or 'down')\n", direction);
+            if (strcmp(direction, "up") == 0 || strcmp(direction, "down")|| strcmp(direction, "right") == 0 || strcmp(direction, "left")  == 0) {
+                //pins are 14 15 18 23 24 25
+                digitalWrite(14, 255);
             }
           } else {
             printf("Invalid name: %s\n", name);
@@ -95,4 +97,3 @@ int main(int argc, char *argv[]) {
   close(server_fd);
   return 0;
 }
-
