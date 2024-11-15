@@ -28,7 +28,12 @@ void trim_newline(char *str) {
 }
 int main(int argc, char *argv[]) {
   wiringPiSetupGpio();
-pinMode(14, OUTPUT);
+  pinMode(14, OUTPUT);
+  pinMode(15, OUTPUT);
+  pinMode(18, OUTPUT);
+  pinMode(23, OUTPUT);
+  pinMode(24, OUTPUT);
+  pinMode(25, OUTPUT);
   int opt;
   int port = PORT_DEFAULT; 
   while ((opt = getopt(argc, argv, "p:")) != -1) {
@@ -79,8 +84,40 @@ pinMode(14, OUTPUT);
         if (strcmp(command, "MOVE") == 0) {
           if (is_valid_name(name)) {
             if (strcmp(direction, "up") == 0 || strcmp(direction, "down")|| strcmp(direction, "right") == 0 || strcmp(direction, "left")  == 0) {
-                //pins are 14 15 18 23 24 25
-                digitalWrite(14, 255);
+              //pins are 14 15 18 23 24 25
+              switch((int)name[0]){
+                case 97:
+                  for(;;){
+                   digitalWrite(14, 5); 
+                  }
+                  break;
+                case 101:
+                  for(;;){
+                   digitalWrite(15, 5); 
+                  }
+                  break;
+                case 104:
+                  for(;;){
+                   digitalWrite(18, 5); 
+                  }
+                  break;
+                case 112:
+                  for(;;){
+                   digitalWrite(23, 5); 
+                  }
+                  break;
+                case 115:
+                  for(;;){
+                   digitalWrite(24, 5); 
+                  }
+                  break;
+                case 118:
+                  for(;;){
+                   digitalWrite(25, 5); 
+                  }
+                  break;
+              }
+              digitalWrite(14, 255);
             }
           } else {
             printf("Invalid name: %s\n", name);
