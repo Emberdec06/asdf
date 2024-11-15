@@ -90,7 +90,6 @@ int main(int argc, char *argv[]) {
         if (strcmp(command, "MOVE") == 0) {
           if (is_valid_name(name)) {
             if (strcmp(direction, "up") == 0 || strcmp(direction, "down")|| strcmp(direction, "right") == 0 || strcmp(direction, "left")  == 0) {
-              //pins are 14 15 18 23 24 25
               switch((int)name[0]){
                 case 97:
                   digitalWrite(14, HIGH); 
