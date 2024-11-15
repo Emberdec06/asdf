@@ -95,26 +95,32 @@ int main(int argc, char *argv[]) {
                 case 97:
                   digitalWrite(14, HIGH); 
                   delay(500);
+                  digitalWrite(14, LOW); 
                   break;
                 case 101:
                   digitalWrite(15, HIGH); 
                   delay(500);
+                  digitalWrite(15, LOW); 
                   break;
                 case 104:
                   digitalWrite(18, HIGH); 
                   delay(500);
+                  digitalWrite(18, LOW); 
                   break;
                 case 112:
                   digitalWrite(23, HIGH); 
                   delay(500);
+                  digitalWrite(23, LOW); 
                   break;
                 case 115:
                   digitalWrite(24, HIGH); 
                   delay(500);
+                  digitalWrite(24, LOW); 
                   break;
                 case 118:
                   digitalWrite(25, HIGH); 
                   delay(500);
+                  digitalWrite(25, LOW); 
                   break;
               }
             }
