@@ -34,6 +34,12 @@ int main(int argc, char *argv[]) {
   pinMode(23, OUTPUT);
   pinMode(24, OUTPUT);
   pinMode(25, OUTPUT);
+  digitalWrite(14, LOW);
+  digitalWrite(15, LOW);
+  digitalWrite(18, LOW);
+  digitalWrite(24, LOW);
+  digitalWrite(23, LOW);
+  digitalWrite(25, LOW);
   int opt;
   int port = PORT_DEFAULT; 
   while ((opt = getopt(argc, argv, "p:")) != -1) {
@@ -87,37 +93,30 @@ int main(int argc, char *argv[]) {
               //pins are 14 15 18 23 24 25
               switch((int)name[0]){
                 case 97:
-                  for(;;){
-                   digitalWrite(14, 5); 
-                  }
+                  digitalWrite(14, HIGH); 
+                  delay(500);
                   break;
                 case 101:
-                  for(;;){
-                   digitalWrite(15, 5); 
-                  }
+                  digitalWrite(15, HIGH); 
+                  delay(500);
                   break;
                 case 104:
-                  for(;;){
-                   digitalWrite(18, 5); 
-                  }
+                  digitalWrite(18, HIGH); 
+                  delay(500);
                   break;
                 case 112:
-                  for(;;){
-                   digitalWrite(23, 5); 
-                  }
+                  digitalWrite(23, HIGH); 
+                  delay(500);
                   break;
                 case 115:
-                  for(;;){
-                   digitalWrite(24, 5); 
-                  }
+                  digitalWrite(24, HIGH); 
+                  delay(500);
                   break;
                 case 118:
-                  for(;;){
-                   digitalWrite(25, 5); 
-                  }
+                  digitalWrite(25, HIGH); 
+                  delay(500);
                   break;
               }
-              digitalWrite(14, 255);
             }
           } else {
             printf("Invalid name: %s\n", name);
