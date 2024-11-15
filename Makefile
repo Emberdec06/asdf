@@ -1,6 +1,5 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -O3 -march=native -flto
-DEBUGFLAGS = -Wall -Wextra -g
 LDFLAGS = -lwiringPi
 SRC = webserver.c 
 BIN = raspweb
@@ -18,9 +17,6 @@ install: $(BIN)
 
 clean:
 	@rm -f $(BIN)
-
-debug: $(SRC)
-	$(CC) $(DEBUGFLAGS) $(SRC) -o $(BIN) $(LDFLAGS)
 
 clean-install: clean install
 
