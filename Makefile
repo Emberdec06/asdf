@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -O3
+CFLAGS = -Wall -Wextra -O3 -march=native -flto
 DEBUGFLAGS = -Wall -Wextra -g
 LDFLAGS = -lwiringPi
 SRC = webserver.c 
@@ -11,6 +11,7 @@ all: $(BIN)
 
 $(BIN): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(BIN) $(LDFLAGS)
+	strip $(BIN)
 
 install: $(BIN)
 	install -m 755 $(BIN) $(TARGET)
